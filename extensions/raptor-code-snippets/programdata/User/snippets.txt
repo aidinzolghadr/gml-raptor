@@ -1,0 +1,15 @@
+ForEach Array:array_foreach(|array|, function(_item, _idx) {$ $});
+For Array-i:for (var i = 0, len = array_length(|array|); i < len; i++) {$	$}$
+For Array-j:for (var j = 0, jen = array_length(|array|); j < jen; j++) {$	$}$
+For Names:var names = struct_get_names(|struct|);$for (var i = 0, len = array_length(names); i < len; i++) {$	var n = names[@i];$	$}$
+Function:function(|args|) {$	$}
+State Empty:.add_state("|name|")$
+State Enter:.add_state("|name|",$	function(sdata, prev_state, prev_result) {$		$	}$)$ 
+State Step:,$function(sdata, frame, prev_result) {$	$}
+State Leave:,$function(sdata, new_state, prev_result) {$	$}
+ObjectPool Callbacks:onPoolActivate = function(_data) {$	$}$ $onPoolDeactivate = function(_data) {$	$}$
+Skin Callbacks:onSkinChanging = function(_skindata) {$	$}$ $onSkinChanged = function(_skindata) {$	$}$
+Race Drop Callback:onRaceDrop = function(_item) {$	$}$
+DataStruct on_game_loaded:on_game_loaded = function() {$	$}$
+Unit Test File:if (!CONFIGURATION_UNIT_TESTING) exit;$ $function unit_test_|TESTNAME|() {$ $	var ut = new UnitTest("YOUR_TEST_SUITE_NAME");$ $	/* Code your tests here */$ $	ut.run();$}$
+Unit Test:ut.tests.|test_name| = function(test, data) {$	$}$

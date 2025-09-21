@@ -1,0 +1,96 @@
+{
+  "$RemapCollection":"v0",
+  "Remaps":[
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"Period","Modifier":"Control",},
+      ],"Name":"Show Snippets",},
+    {"$Remap":"v0","Combo":[],"Name":"Insert Block Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"","Modifier":"None",},
+      ],"Name":"Insert If Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"","Modifier":"None",},
+      ],"Name":"Insert If-Else Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"","Modifier":"None",},
+      ],"Name":"Insert For Loop Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"","Modifier":"None",},
+      ],"Name":"Insert For Loop (i..n) Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"","Modifier":"None",},
+      ],"Name":"Insert While Loop Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"","Modifier":"None",},
+      ],"Name":"Insert Do-Until Loop Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"","Modifier":"None",},
+      ],"Name":"Insert Repeat Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"","Modifier":"None",},
+      ],"Name":"Insert Switch Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"","Modifier":"None",},
+      ],"Name":"Insert With Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"","Modifier":"None",},
+      ],"Name":"Insert Line Comment Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"","Modifier":"None",},
+      ],"Name":"Insert Multi-line Comment Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"","Modifier":"None",},
+      ],"Name":"Insert Region Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"I","Modifier":"None",},
+      ],"Name":"Insert For Array-i Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"J","Modifier":"None",},
+      ],"Name":"Insert For Array-j Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"N","Modifier":"None",},
+      ],"Name":"Insert For Names Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"F","Modifier":"None",},
+      ],"Name":"Insert Function Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"Number1","Modifier":"None",},
+      ],"Name":"Insert State Empty Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"Number2","Modifier":"None",},
+      ],"Name":"Insert State Enter Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"Number3","Modifier":"None",},
+      ],"Name":"Insert State Step Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"Number4","Modifier":"None",},
+      ],"Name":"Insert State Leave Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"O","Modifier":"None",},
+      ],"Name":"Insert ObjectPool Callbacks Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"K","Modifier":"None",},
+      ],"Name":"Insert Skin Callbacks Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"R","Modifier":"None",},
+      ],"Name":"Insert Race Drop Callback Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"S","Modifier":"None",},
+      ],"Name":"Insert SaveGame Callbacks Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"U","Modifier":"None",},
+      ],"Name":"Insert Unit Test File Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"T","Modifier":"None",},
+      ],"Name":"Insert Unit Test Snippet",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"Z","Modifier":"Control",},
+      ],"Name":"Redo",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"Y","Modifier":"Control",},
+      ],"Name":"Undo",},
+    {"$Remap":"v0","Combo":[
+        {"$HotkeyCombo":"v1","Keys":"L","Modifier":"None",},
+      ],"Name":"Insert DataStruct on_game_loaded Snippet",},
+  ],
+}

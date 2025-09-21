@@ -156,23 +156,80 @@ function string_last_index_of(str, substr, startpos = 1) {
 
 /// @func	string_match(str, wildcard_str)
 /// @desc	Checks whether a string matches a specific wildcard string.
-///			Wildcard character is '*' and it can appear anywhere in the string, any number of times.
-///			* at the beginning means "ends_with" (hello -> *llo)
-///			* at the end means "starts_with" (hello -> he*)
-///			* on both ends means "contains" (hello -> *ell*)
-///			* somewhere in the middle means "starts with and ends with" (hello -> he*o)
-///			You may combine the above in any way you like! ("Hello, World" -> "He*o*Wo*d*")
-///			NOTE: if no '*' is in wildcard_str, then a == exact match counts!
-///			NOTE: if wildcard_str == "*" then result is str != undefined
-///				  (undefined will always return false)
-///			Examples:
-///			string_match("hello", "hel*") -> true
-///			string_match("hello", "*hel*") -> true
-///			string_match("hello", "*hel") -> false
-/// @param {string} str
-/// @param {string} wildcard_str
-/// @returns {bool}	
+///			For all combinations of wildcards and negation/double negation see the wiki at
+///			https://github.com/coldrockgames/gml-raptor/wiki/Little-Helpers#string_match
+/// @returns {bool}
 function string_match(str, wildcard_str) {
+	static nots = {
+		seqcnt:		0,
+		seq:		[],
+	};
+
+	// shortcut match "any"	
+    if (wildcard_str == "*") 
+        return str != undefined;
+
+	// shortcut match "no not's"
+	if (!string_contains(wildcard_str, "!"))
+		return __string_match(str, wildcard_str);
+
+	// do not reallocate/recreate the static array (too expensive)
+	// instead, just work with an index-pointer
+	nots.seqcnt  = 0;
+	if (CONFIGURATION_UNIT_TESTING || CONFIGURATION_DEV)
+		var dbgnot = nots;
+	wildcard_str = string_replace_all(wildcard_str, "\\!", chr(1)); // temp-remove masked !
+	var lastnotpos = 0;
+	var total_length = string_length(wildcard_str);
+	var runner = wildcard_str;
+	var is_positive = true;
+	var runner_index = 0;
+	var stars = 0;
+	var ones = 0;
+	var countstr = "";
+	// first, find "not's" and "not-not's"
+	do {
+		lastnotpos = string_index_of(runner, "!", 1);
+		countstr = string_substring(runner, 1, lastnotpos);
+		ones = string_count(chr(1), countstr);
+		nots.seq[@ nots.seqcnt] = { 
+			// restore the \! to ! when adding
+			str: string_substring(
+				string_replace_all(runner, chr(1), "!"), 1, 
+				lastnotpos > 0 ? lastnotpos - 1 : total_length), 
+			positive: is_positive,
+			start_at: runner_index,
+		};
+		nots.seqcnt++;
+		if (lastnotpos == 0) break;
+		
+		stars = string_count("*", countstr);
+		runner = string_substring(runner, lastnotpos + 1);
+		if (string_char_at(runner, 1) != "!") {
+			// not
+			is_positive = false;
+		} else {
+			// not-not so its positive again
+			is_positive = true;
+			runner = string_substring(runner, 2); // remove the !!
+			runner_index--; // and go back 1 char, as 2 get removed, not 1
+		}
+		runner_index += lastnotpos - stars;
+	} until (lastnotpos == 0) 
+
+	// then, simply go through the sequence as we did before, but check positive y/n
+	var seq_next;
+	for (var j = 0; j < nots.seqcnt; j++) {
+		seq_next = nots.seq[@j];
+		if (seq_next.positive ? 
+			!__string_match(string_substring(str, seq_next.start_at), seq_next.str) :
+			__string_match(string_substring(str, seq_next.start_at), seq_next.str))
+			return false;
+	}
+    return true;
+}
+
+function __string_match(str, wildcard_str) {
     if (wildcard_str == "*") 
         return str != undefined;
 

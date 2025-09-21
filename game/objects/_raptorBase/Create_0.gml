@@ -78,10 +78,19 @@ commit_move = function() {
 	yprevious = y;
 }
 
-/// @func	can_touch_this(_instance)
+/// @func	is_excluded_type(_instance)
+is_excluded_type = function(_instance) {
+	gml_pragma("forceinline");
+	with(_instance) 
+		return
+			is_child_of(self, MouseCursor);
+}
+
+/// @func can_touch_this(_instance)
+__can_not_touch_this_child = undefined;
 can_touch_this = function(_instance) {
 	with(_instance)
-		return SELF_IS_INTERACTIVE && !INSTANCE_UNREACHABLE;
+		return (!is_excluded_type(_instance) && SELF_IS_INTERACTIVE && !INSTANCE_UNREACHABLE) 
 }
 
 __topmost_object_list = ds_list_create();
